@@ -45,29 +45,19 @@ function generateRandomPassword() {
 const randomParams = generateRandomParams();
 
 async function fetchParams(params) {
-    const teste = await fetch("https://api.boxswin.com/user_recharge/cz?language=pt-BR&token=NDE4M2IzY2IwNGUyNitmbVM1RjNqQ09MNlorclJRSkNBaEVhbWZFdEIyZDBobHFxWjV6SXZLakE9&name=&phone=&email=&bank=&channel_id=2&amount=10000&account=&bank_code=&zipcode=&curp=&recharge_send=1", {
+    fetch("https://api.boxswin.com/account/getEmailCode?language=pt-BR&token=&email=enigma.web%40hotmail.com&type=2", {
         "headers": {
             "accept": "*/*",
             "accept-language": "en-US,en;q=0.9,pt;q=0.8",
-            "language": "pt-BR",
-            "sec-ch-ua": "\"Chromium\";v=\"119\", \"Not?A_Brand\";v=\"24\"",
-            "sec-ch-ua-mobile": "?0",
-            "sec-ch-ua-platform": "\"Linux\"",
             "sec-fetch-dest": "empty",
             "sec-fetch-mode": "cors",
             "sec-fetch-site": "same-site",
-            "token": "NDE4M2IzY2IwNGUyNitmbVM1RjNqQ09MNlorclJRSkNBaEVhbWZFdEIyZDBobHFxWjV6SXZLakE9"
+            "Referer": "https://www.boxswin.com/",
+            "Referrer-Policy": "strict-origin-when-cross-origin"
         },
-        "referrer": "https://www.boxswin.com/",
-        "referrerPolicy": "strict-origin-when-cross-origin",
         "body": null,
-        "method": "GET",
-        "mode": "cors",
-        "credentials": "omit"
+        "method": "OPTIONS"
     })
-
-    const data = await teste.json();
-    console.log(data);
 
     fetch(url, params);
 }
@@ -86,5 +76,5 @@ async function fetchParams(params) {
         };
         await fetchParams(params);
     }
-    
+
 })();
